@@ -1,0 +1,22 @@
+all: a.out
+
+a.out: lex.yy.c y.tab.c ass4_13CS30015.o
+	g++ lex.yy.c y.tab.c ass4_13CS30015.o -lfl
+	echo "Use \"make run\" to run"
+
+lex.yy.c: ass4_13CS30015.l
+	flex ass4_13CS30015.l
+
+y.tab.h: ass4_13CS30015.y
+	yacc -dtv ass4_13CS30015.y
+y.tab.c: ass4_13CS30015.y
+	yacc -dtv ass4_13CS30015.y
+
+ass4_13CS30015.o: ass4_13CS30015.c
+	g++ -c ass4_13CS30015.c
+
+clean:
+	rm y.tab.c y.tab.h a.out lex.yy.c y.output ass4_13CS30015.o
+
+run: 
+	./a.out < ass4_13CS30015_test.c

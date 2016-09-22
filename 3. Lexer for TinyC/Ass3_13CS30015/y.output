@@ -1,0 +1,21 @@
+   0  $accept : statement $end
+
+   1  statement :
+
+state 0
+	$accept : . statement $end  (0)
+	statement : .  (1)
+
+	.  reduce 1
+
+	statement  goto 1
+
+
+state 1
+	$accept : statement . $end  (0)
+
+	$end  accept
+
+
+48 terminals, 2 nonterminals
+2 grammar rules, 2 states
