@@ -5,7 +5,11 @@
 # Then, we have to comment the whole assembly language code	
 
 #Registers used
-
+# %rdi -> 1st argument to a function
+# %rsi -> 2nd argument to a function
+# %rdx -> 3rd argument to a function
+# %rcx -> 4th argument to a function
+# %rax -> returns the value from the function
 
 
 	.file	"ass1_13CS30015.c"                      # source file name
